@@ -3,22 +3,35 @@
 This Useful Script creates a mongodb server based on a Docker Image.
 You don't have know docker to use this solution.
 
+## Installing
+
+```bash
+npm install -g usdocker-mongodb
+```
+
 ## Start the mongodb service
 
-```
+```bash
 usdocker mongodb up
 ```
 
 ## Stop the mongodb service
 
-```
+```bash
 usdocker mongodb down
 ```
 
 ## Check the mongodb status
 
-```
+```bash
 usdocker mongodb status
+```
+
+## Connect to the MongoDB client
+
+
+```bash
+usdocker mongodb client -- [args]
 ```
 
 
