@@ -1,0 +1,26 @@
+{
+  "name": "usdocker-mongodb",
+  "version": "1.0.0",
+  "description": "USDocker script for MongoDB ",
+  "main": "usdocker_mongodb.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint *.js",
+    "postinstall": "./node_modules/.bin/usdocker -rv"
+  },
+  "keywords": [
+    "usdocker",
+    "mongodb"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/usdocker/usdocker-mongodb.git"
+  },
+  "author": "joao@byjg.com.br",
+  "license": "MIT",
+  "dependencies": {
+    "usdocker": "^1.0.*"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1"
+  }
+}
