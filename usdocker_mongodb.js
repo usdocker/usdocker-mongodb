@@ -6,12 +6,13 @@ const SCRIPTNAME = 'mongodb';
 
 let config = usdocker.config(SCRIPTNAME);
 let configGlobal = usdocker.configGlobal();
+const CONTAINERNAME = SCRIPTNAME + configGlobal.get('container-suffix');
 
 function getContainerDef() {
 
     let docker = usdocker.dockerRunWrapper(configGlobal);
     return docker
-        .containerName(SCRIPTNAME + configGlobal.get('container-suffix'))
+        .containerName(CONTAINERNAME)
         .port(config.get('port'), 27017)
         .volume(config.get('folder'), '/data/db')
         .env('TZ', configGlobal.get('timezone'))
@@ -32,7 +33,7 @@ module.exports = {
 
     client: function(callback, extraArgs)
     {
-        usdocker.exec(SCRIPTNAME, ['mongo'].concat(extraArgs), callback);
+        usdocker.exec(CONTAINERNAME, ['mongo'].concat(extraArgs), callback);
     },
 
     debugcli(callback) {
@@ -47,20 +48,20 @@ module.exports = {
 
     up: function(callback)
     {
-        usdocker.up(SCRIPTNAME, getContainerDef(), callback);
+        usdocker.up(CONTAINERNAME, getContainerDef(), callback);
     },
 
     status: function(callback) {
-        usdocker.status(SCRIPTNAME, callback);
+        usdocker.status(CONTAINERNAME, callback);
     },
 
     down: function(callback)
     {
-        usdocker.down(SCRIPTNAME, callback);
+        usdocker.down(CONTAINERNAME, callback);
     },
 
     restart: function(callback)
     {
-        usdocker.restart(SCRIPTNAME, getContainerDef(), callback);
+        usdocker.restart(CONTAINERNAME, getContainerDef(), callback);
     }
 };
