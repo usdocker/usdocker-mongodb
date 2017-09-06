@@ -6,7 +6,7 @@ You don't have know docker to use this solution.
 ## Installing
 
 ```bash
-npm install -g usdocker-mongodb
+npm install -g @usdocker/usdocker @usdocker/mongodb
 ```
 
 ## Start the mongodb service
